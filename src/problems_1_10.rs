@@ -130,3 +130,26 @@ pub fn problem_8() {
     }
     println!("{}", mul_result);
 }
+
+//Special Pythagorean Triplet
+// There exists exactly one Pythagorean triplet for with a + b + c = 1000
+// Find a*b*c
+pub fn problem_9() {
+    for i in 1..250 {
+        for j in 1..500 {
+            let c = f32::sqrt((i * i + j * j) as f32);
+            if (i + j) as f32 + c == 1000.0 {
+                println!("{}", ((i * j) as f32) * c);
+                return;
+            }
+        }
+    }
+}
+
+//Summation of Primes
+// Find the sum of all the primes below two million
+pub fn problem_10() {
+    println!("{}", tools1_50::sieve_of_eratosthenes(20000000).iter().sum::<i128>());
+}
+
+

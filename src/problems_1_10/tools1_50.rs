@@ -32,3 +32,21 @@ pub fn is_palindrome(mut arg: i32) -> bool {
     }
     true
 }
+
+pub fn sieve_of_eratosthenes(arg: i128) -> Vec<i128> {
+    let mut number_vec: Vec<i128> = vec![1; arg as usize];
+    let mut prime_vec = Vec::new();
+
+    for i in 2..arg {
+        if number_vec[i as usize] == 1 {
+            prime_vec.push(i);
+            let mut mul = i * i;
+            while mul < arg {
+                number_vec[mul as usize] = 0;
+                mul += i;
+            }
+        }
+    }
+    prime_vec
+}
+
